@@ -42,6 +42,6 @@ df.set_index("Approaches", inplace=True)
 
 # Plot heatmap
 plt.figure(figsize=(14, 8))
-sns.heatmap(df, annot=True,cmap="Greys", cbar=True,  annot_kws={"size": 14, "weight": "bold"}, linewidths=.5, linecolor='white')
+sns.heatmap(df, annot=True, cmap="YlGnBu", cbar=True,  annot_kws={"size": 14, "weight": "bold"})
 plt.title("Dataset (4932-6239-7227)")
 plt.savefig("Figure-4932-6239-7227.eps", dpi=300, bbox_inches='tight', pad_inches=0.1)
