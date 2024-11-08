@@ -133,7 +133,7 @@ def compute_similarities(network1, annotations1, network2, annotations2, similar
         annotations1[go] = set(annotations1[go])
     for go in annotations2:
         annotations2[go] = set(annotations2[go])
-    loaded_embedding = np.load('kaggle/input/datavp/GOTembed/embeddings.npy', allow_pickle=True).item()
+    loaded_embedding = np.load('data/input/datavp/GOTembed/embeddings.npy', allow_pickle=True).item()
 
     go_embeddings = {}
 
@@ -348,20 +348,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
             netfile2 = lines[j].strip()
             print(netfile, netfile2)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/10116.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/39947.tab"):
+            if (netfile == "data/input/datavp2/datavp/10116.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/39947.tab"):
                 print("10116-39947")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/10116.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/39947.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -371,20 +371,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         alpha)
 
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/4896.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/39947.tab"):
+            if (netfile == "data/input/datavp2/datavp/4896.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/39947.tab"):
                 print("4896-39947")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/4896.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/39947.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -393,20 +393,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/4896.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10116.tab"):
+            if (netfile == "data/input/datavp2/datavp/4896.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10116.tab"):
                 print("4896-10116")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/4896.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10116.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -416,20 +416,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         alpha)
 
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/3702.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/39947.tab"):
+            if (netfile == "data/input/datavp2/datavp/3702.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/39947.tab"):
                 print("3702-39947")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/3702.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/39947.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -438,20 +438,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/3702.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10116.tab"):
+            if (netfile == "data/input/datavp2/datavp/3702.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10116.tab"):
                 print("3702-10116")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/3702.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10116.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -460,20 +460,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/3702.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/4896.tab"):
+            if (netfile == "data/input/datavp2/datavp/3702.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/4896.tab"):
                 print("3702-4896")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/3702.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/4896.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -483,20 +483,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         alpha)
 
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/562.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/39947.tab"):
+            if (netfile == "data/input/datavp2/datavp/562.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/39947.tab"):
                 print("562-39947")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/562.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/562.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/39947.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -505,20 +505,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/562.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10116.tab"):
+            if (netfile == "data/input/datavp2/datavp/562.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10116.tab"):
                 print("562-10116")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/562.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/562.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10116.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -527,20 +527,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/562.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/4896.tab"):
+            if (netfile == "data/input/datavp2/datavp/562.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/4896.tab"):
                 print("562-4896")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/562.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/562.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/4896.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -549,20 +549,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/562.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/3702.tab"):
+            if (netfile == "data/input/datavp2/datavp/562.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/3702.tab"):
                 print("562-3702")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/562.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/562.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/3702.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -572,20 +572,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         alpha)
 
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/10090.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/39947.tab"):
+            if (netfile == "data/input/datavp2/datavp/10090.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/39947.tab"):
                 print("10090-39947")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/10090.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/10090.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/39947.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -594,20 +594,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/10090.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10116.tab"):
+            if (netfile == "data/input/datavp2/datavp/10090.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10116.tab"):
                 print("10090-10116")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/10090.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/10090.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10116.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -616,20 +616,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/10090.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/4896.tab"):
+            if (netfile == "data/input/datavp2/datavp/10090.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/4896.tab"):
                 print("10090-4896")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/10090.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/10090.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/4896.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -638,20 +638,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/10090.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/3702.tab"):
+            if (netfile == "data/input/datavp2/datavp/10090.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/3702.tab"):
                 print("10090-3702")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/10090.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/10090.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/3702.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -661,20 +661,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         alpha)
 
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/9606.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/39947.tab"):
+            if (netfile == "data/input/datavp2/datavp/9606.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/39947.tab"):
                 print("9606-39947")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/9606.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/39947.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_ids.npy')
+                    f'data/input/embedding-species/{model_name}/human/human_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -683,20 +683,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/9606.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10116.tab"):
+            if (netfile == "data/input/datavp2/datavp/9606.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10116.tab"):
                 print("9606-10116")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/9606.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10116.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_ids.npy')
+                    f'data/input/embedding-species/{model_name}/human/human_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -705,20 +705,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/9606.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/4896.tab"):
+            if (netfile == "data/input/datavp2/datavp/9606.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/4896.tab"):
                 print("9606-4896")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/9606.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/4896.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_ids.npy')
+                    f'data/input/embedding-species/{model_name}/human/human_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -727,20 +727,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/9606.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/3702.tab"):
+            if (netfile == "data/input/datavp2/datavp/9606.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/3702.tab"):
                 print("9606-3702")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/9606.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/3702.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_ids.npy')
+                    f'data/input/embedding-species/{model_name}/human/human_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -750,20 +750,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         alpha)
 
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/4932.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/39947.tab"):
+            if (netfile == "data/input/datavp2/datavp/4932.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/39947.tab"):
                 print("4932-39947")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/4932.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/4932.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/39947.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -772,20 +772,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/4932.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10116.tab"):
+            if (netfile == "data/input/datavp2/datavp/4932.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10116.tab"):
                 print("4932-10116")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/4932.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/4932.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10116.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -794,20 +794,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/4932.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/4896.tab"):
+            if (netfile == "data/input/datavp2/datavp/4932.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/4896.tab"):
                 print("4932-4896")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/4932.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/4932.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/4896.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -816,20 +816,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/4932.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/3702.tab"):
+            if (netfile == "data/input/datavp2/datavp/4932.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/3702.tab"):
                 print("4932-3702")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/4932.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/4932.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/3702.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -838,20 +838,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
 
-            if (netfile == "kaggle/input/datavp2/datavp/6239.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/562.tab"):
+            if (netfile == "data/input/datavp2/datavp/6239.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/562.tab"):
                 print("6239-562")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/562.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/6239.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/562.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -860,20 +860,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/6239.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/39947.tab"):
+            if (netfile == "data/input/datavp2/datavp/6239.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/39947.tab"):
                 print("6239-39947")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/6239.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/39947.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -882,20 +882,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/6239.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10116.tab"):
+            if (netfile == "data/input/datavp2/datavp/6239.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10116.tab"):
                 print("6239-10116")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/6239.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10116.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -904,20 +904,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/6239.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/4896.tab"):
+            if (netfile == "data/input/datavp2/datavp/6239.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/4896.tab"):
                 print("6239-4896")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/6239.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/4896.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -926,20 +926,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/6239.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/3702.tab"):
+            if (netfile == "data/input/datavp2/datavp/6239.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/3702.tab"):
                 print("6239-3702")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/6239.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/3702.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -949,20 +949,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         alpha)
 
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/7227.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/39947.tab"):
+            if (netfile == "data/input/datavp2/datavp/7227.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/39947.tab"):
                 print("7227-39947")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/39947.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_ids.npy')
+                    f'data/input/embedding-species/{model_name}/droso/droso_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/oryza/oryza_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -971,20 +971,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/7227.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10116.tab"):
+            if (netfile == "data/input/datavp2/datavp/7227.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10116.tab"):
                 print("7227-10116")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10116.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_ids.npy')
+                    f'data/input/embedding-species/{model_name}/droso/droso_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/rattus/rattus_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -993,20 +993,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/7227.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/4896.tab"):
+            if (netfile == "data/input/datavp2/datavp/7227.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/4896.tab"):
                 print("7227-4896")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/4896.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_ids.npy')
+                    f'data/input/embedding-species/{model_name}/droso/droso_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/pombe/pombe_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -1015,20 +1015,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
             # new
-            if (netfile == "kaggle/input/datavp2/datavp/7227.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/3702.tab"):
+            if (netfile == "data/input/datavp2/datavp/7227.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/3702.tab"):
                 print("7227-3702")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
+                annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/3702.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_ids.npy')
+                    f'data/input/embedding-species/{model_name}/droso/droso_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/aradopsis/aradopsis_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file,
                                                                         similarities,
@@ -1036,21 +1036,21 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                         network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/coronavirus_blast_sim2/human_sars2.tab") and (
-                    netfile2 == "kaggle/input/coronavirus_blast_sim2/human_sars1.tab"):
+            if (netfile == "data/input/coronavirus_blast_sim2/human_sars2.tab") and (
+                    netfile2 == "data/input/coronavirus_blast_sim2/human_sars1.tab"):
                 print("sars-human2-sars-human1")
-                annotation1file = "kaggle/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
-                annotation2file = "kaggle/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
-                annotation3file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
+                annotation1file = "data/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
+                annotation2file = "data/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
+                annotation3file = "data/input/datavp2/datavp/gaf/9606.gaf"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/sars_human/sars_and_human_ids.npy')
+                    f'data/input/embedding-species/{model_name}/sars_human/sars_and_human_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/sars_human/sars_and_human_ids.npy')
+                    f'data/input/embedding-species/{model_name}/sars_human/sars_and_human_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/sars_human/sars_and_human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/sars_human/sars_and_human_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/sars_human/sars_and_human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/sars_human/sars_and_human_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species_coronavirus_with_human(netfile, netfile2,
                                                                                                output_file,
@@ -1062,20 +1062,20 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
                                                                                                network2_ids,
                                                                                                network1_embd,
                                                                                                network2_embd, alpha)
-            if (netfile == "kaggle/input/coronavirus_blast_sim2/sars2.tab") and (
-                    netfile2 == "kaggle/input/coronavirus_blast_sim2/sars1.tab"):
+            if (netfile == "data/input/coronavirus_blast_sim2/sars2.tab") and (
+                    netfile2 == "data/input/coronavirus_blast_sim2/sars1.tab"):
                 print("sars2-sars1")
-                annotation1file = "kaggle/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
-                annotation2file = "kaggle/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
+                annotation1file = "data/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
+                annotation2file = "data/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
                 network1_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/sars12/sars_ids.npy')
+                    f'data/input/embedding-species/{model_name}/sars12/sars_ids.npy')
                 network2_ids = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/sars12/sars_ids.npy')
+                    f'data/input/embedding-species/{model_name}/sars12/sars_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/sars12/sars_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/sars12/sars_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/sars12/sars_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/sars12/sars_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species_coronavirus(netfile, netfile2, output_file,
                                                                                     similarities,
@@ -1086,189 +1086,189 @@ def compute_sim_between_networks(datafile, similarities, output_file, alpha):
 
             # new
 
-            if (netfile == "kaggle/input/datavp2/datavp/7227.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/562.tab"):
+            if (netfile == "data/input/datavp2/datavp/7227.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/562.tab"):
                 print("7227-562")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/562.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/droso/droso_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/562.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/droso/droso_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/ecoli/ecoli_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/ecoli/ecoli_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
 
-            if (netfile == "kaggle/input/datavp2/datavp/7227.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/6239.tab"):
+            if (netfile == "data/input/datavp2/datavp/7227.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/6239.tab"):
                 print("7227-6239")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/droso/droso_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/6239.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/droso/droso_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/datavp2/datavp/7227.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/4932.tab"):
+            if (netfile == "data/input/datavp2/datavp/7227.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/4932.tab"):
                 print("7227-4932")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/4932.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/droso/droso_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/4932.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/droso/droso_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/datavp2/datavp/7227.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/9606.tab"):
+            if (netfile == "data/input/datavp2/datavp/7227.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/9606.tab"):
                 print("7227-9606")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/droso/droso_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/human/human_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/9606.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/droso/droso_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/human/human_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/datavp2/datavp/7227.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10090.tab"):
+            if (netfile == "data/input/datavp2/datavp/7227.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10090.tab"):
                 print("7227-10090")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10090.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/droso/droso_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10090.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/droso/droso_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/droso/droso_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/datavp2/datavp/6239.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/4932.tab"):
+            if (netfile == "data/input/datavp2/datavp/6239.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/4932.tab"):
                 print("6239-4932")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/4932.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/6239.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/4932.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/datavp2/datavp/6239.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/9606.tab"):
+            if (netfile == "data/input/datavp2/datavp/6239.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/9606.tab"):
                 print("6239-9606 ")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/human/human_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/6239.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/9606.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/human/human_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/datavp2/datavp/6239.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10090.tab"):
+            if (netfile == "data/input/datavp2/datavp/6239.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10090.tab"):
                 print("6239-10090")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10090.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/6239.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10090.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/celeg/celeg_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/celeg/celeg_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/datavp2/datavp/4932.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/9606.tab"):
+            if (netfile == "data/input/datavp2/datavp/4932.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/9606.tab"):
                 print("4932-9606")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/4932.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/human/human_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/4932.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/9606.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/human/human_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/datavp2/datavp/4932.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10090.tab"):
+            if (netfile == "data/input/datavp2/datavp/4932.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10090.tab"):
                 print("4932-10090")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/4932.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10090.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/4932.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10090.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/yeast/Yeast_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/yeast/Yeast_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
                                                                         network2_ids, network1_embd, network2_embd,
                                                                         alpha)
-            if (netfile == "kaggle/input/datavp2/datavp/9606.tab") and (
-                    netfile2 == "kaggle/input/datavp2/datavp/10090.tab"):
+            if (netfile == "data/input/datavp2/datavp/9606.tab") and (
+                    netfile2 == "data/input/datavp2/datavp/10090.tab"):
                 print("9606-10090")
-                annotation1file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
-                annotation2file = "kaggle/input/datavp2/datavp/gaf/10090.gaf"
-                network1_ids = np.load(f'kaggle/input/embedding-species/{model_name}/human/human_ids.npy')
-                network2_ids = np.load(f'kaggle/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
+                annotation1file = "data/input/datavp2/datavp/gaf/9606.gaf"
+                annotation2file = "data/input/datavp2/datavp/gaf/10090.gaf"
+                network1_ids = np.load(f'data/input/embedding-species/{model_name}/human/human_ids.npy')
+                network2_ids = np.load(f'data/input/embedding-species/{model_name}/mouse/mouse_ids.npy')
                 network1_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/human/human_embeddings.npy').astype(
                     np.float32)
                 network2_embd = np.load(
-                    f'kaggle/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
+                    f'data/input/embedding-species/{model_name}/mouse/mouse_embeddings.npy').astype(
                     np.float32)
                 similarities = compute_similarities_between_two_species(netfile, netfile2, output_file, similarities,
                                                                         annotation1file, annotation2file, network1_ids,
@@ -1385,7 +1385,7 @@ def parse_annotations_first_coronavirus_human(filename, filename2, network):
                 for go_term in fields[4].split(';'):
                     annotations[fields[1]].append(go_term)
     # Write annotations to the output file
-    with open("kaggle/working/annotation_coronavirus.txt", 'w') as output_f:
+    with open("data/working/annotation_coronavirus.txt", 'w') as output_f:
         for protein, annotation_list in annotations.items():
             for annt in annotation_list:
                 output_f.write(f"{protein}\t{annt}\n")
@@ -1406,7 +1406,7 @@ def parse_annotations_first_coronavirus(filename, network):
             except:
                 continue
     # Write annotations to the output file
-    with open("kaggle/working/annotation_coronavirus.txt", 'w') as output_f:
+    with open("data/working/annotation_coronavirus.txt", 'w') as output_f:
         for protein, annotation_list in annotations.items():
             for annt in annotation_list:
                 output_f.write(f"{protein}\t{annt}\n")
@@ -1434,8 +1434,8 @@ def parse_annotations_first(filename, network):
             if fields[1] in network.nodes() and fields[6] != "IEA":
                 for go_term in fields[4].split(';'):
                     annotations[fields[1]].append(go_term)
-    if (filename == "kaggle/input/datavp2/datavp/gaf/7227.gaf"):
-        with open("kaggle/working/annotation_fly.txt", 'w') as output_f:
+    if (filename == "data/input/datavp2/datavp/gaf/7227.gaf"):
+        with open("data/working/annotation_fly.txt", 'w') as output_f:
             for protein, annotation_list in annotations.items():
                 for annt in annotation_list:
                     output_f.write(f"{protein}\t{annt}\n")
@@ -1454,23 +1454,23 @@ def parse_annotations(filename, network, annotations):
                 for go_term in fields[4].split(';'):
                     annotations[fields[1]].append(go_term)
                     local_annotations[fields[1]].append(go_term)
-    if (filename == "kaggle/input/datavp2/datavp/gaf/9606.gaf"):
-        with open("kaggle/working/annotation_human.txt", 'w') as output_f:
+    if (filename == "data/input/datavp2/datavp/gaf/9606.gaf"):
+        with open("data/working/annotation_human.txt", 'w') as output_f:
             for protein, annotation_list in local_annotations.items():
                 for annt in annotation_list:
                     output_f.write(f"{protein}\t{annt}\n")
-    if (filename == "kaggle/input/datavp2/datavp/gaf/10090.gaf"):
-        with open("kaggle/working/annotation_mouse.txt", 'w') as output_f:
+    if (filename == "data/input/datavp2/datavp/gaf/10090.gaf"):
+        with open("data/working/annotation_mouse.txt", 'w') as output_f:
             for protein, annotation_list in local_annotations.items():
                 for annt in annotation_list:
                     output_f.write(f"{protein}\t{annt}\n")
-    if (filename == "kaggle/input/datavp2/datavp/gaf/6239.gaf"):
-        with open("kaggle/working/annotation_worm.txt", 'w') as output_f:
+    if (filename == "data/input/datavp2/datavp/gaf/6239.gaf"):
+        with open("data/working/annotation_worm.txt", 'w') as output_f:
             for protein, annotation_list in local_annotations.items():
                 for annt in annotation_list:
                     output_f.write(f"{protein}\t{annt}\n")
-    if (filename == "kaggle/input/datavp2/datavp/gaf/4932.gaf"):
-        with open("kaggle/working/annotation_yeast.txt", 'w') as output_f:
+    if (filename == "data/input/datavp2/datavp/gaf/4932.gaf"):
+        with open("data/working/annotation_yeast.txt", 'w') as output_f:
             for protein, annotation_list in local_annotations.items():
                 for annt in annotation_list:
                     output_f.write(f"{protein}\t{annt}\n")
@@ -1566,8 +1566,8 @@ def ciq_between_two(c1, c2):
 
 starttime = time.time()
 
-# datafile = "kaggle/input/policy_coronavirus/new_data_2spec_kaggle_sars1and2.txt"
-datafile = "kaggle/input/data_policy/new_data_5spec_kaggle.txt"
+# datafile = "data/input/policy_coronavirus/new_data_2spec_sars1and2.txt"
+datafile = "data/input/data_policy/new_data_5spec.txt"
 global beta
 global alpha
 global ppi
@@ -1575,13 +1575,13 @@ global sim_ppi
 global annotations
 global clusters
 global similarities
-output_file = 'kaggle/working/similarities_proteins.txt'
+output_file = 'data/working/similarities_proteins.txt'
 ppi = nx.Graph()
 sim_ppi = nx.Graph()
 similarities = {}
 clusters = {}
 
-resultfile = "kaggle/working/result_all_gen100_mut0.3_pop100_alpha0.0_beta0.5_fitness.txt"
+resultfile = "data/working/result_all_gen100_mut0.3_pop100_alpha0.0_beta0.5_fitness.txt"
 # Suppress specific warning
 warnings.filterwarnings("ignore", message="invalid value encountered in scalar divide")
 
@@ -1590,17 +1590,17 @@ print("End computing similarities")
 print(len(similarities))
 
 readnetwork(datafile, similarities)
-annotation1file = "kaggle/input/datavp2/datavp/gaf/7227.gaf"
-annotation2file = "kaggle/input/datavp2/datavp/gaf/9606.gaf"
-annotation3file = "kaggle/input/datavp2/datavp/gaf/10090.gaf"
-annotation4file = "kaggle/input/datavp2/datavp/gaf/6239.gaf"
-annotation5file = "kaggle/input/datavp2/datavp/gaf/4932.gaf"
-annotation6file = "kaggle/input/datavp2/datavp/gaf/562.gaf"
-annotation7file = "kaggle/input/datavp2/datavp/gaf/3702.gaf"
-annotation8file = "kaggle/input/datavp2/datavp/gaf/4896.gaf"
-annotation9file = "kaggle/input/datavp2/datavp/gaf/10116.gaf"
-annotation10file = "kaggle/input/datavp2/datavp/gaf/39947.gaf"
-annotation_coronavirus = "kaggle/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
+annotation1file = "data/input/datavp2/datavp/gaf/7227.gaf"
+annotation2file = "data/input/datavp2/datavp/gaf/9606.gaf"
+annotation3file = "data/input/datavp2/datavp/gaf/10090.gaf"
+annotation4file = "data/input/datavp2/datavp/gaf/6239.gaf"
+annotation5file = "data/input/datavp2/datavp/gaf/4932.gaf"
+annotation6file = "data/input/datavp2/datavp/gaf/562.gaf"
+annotation7file = "data/input/datavp2/datavp/gaf/3702.gaf"
+annotation8file = "data/input/datavp2/datavp/gaf/4896.gaf"
+annotation9file = "data/input/datavp2/datavp/gaf/10116.gaf"
+annotation10file = "data/input/datavp2/datavp/gaf/39947.gaf"
+annotation_coronavirus = "data/input/sars-goa-uniprotkb/uniprotkb_severe_acute_respiratory_2024_01_01.tsv"
 # Read the file content
 with open(datafile, 'r') as file:
     lines = file.readlines()
@@ -1616,17 +1616,17 @@ print(ncbi_identifiers)
 # Parse the GO annotations for species 1 and species 2
 speciesCoronavirus = False
 if (not speciesCoronavirus):
-    annotfilefirst = f"kaggle/input/datavp2/datavp/gaf/{ncbi_identifiers[0]}.gaf"
+    annotfilefirst = f"data/input/datavp2/datavp/gaf/{ncbi_identifiers[0]}.gaf"
     print(annotfilefirst)
     annotations = parse_annotations_first(annotfilefirst, sim_ppi)
     print("len_annotation ", ncbi_identifiers[0])
     print(len(annotations))
     for ncbiid in ncbi_identifiers[1:]:
-        annotfile = f"kaggle/input/datavp2/datavp/gaf/{ncbiid}.gaf"
+        annotfile = f"data/input/datavp2/datavp/gaf/{ncbiid}.gaf"
         annotations = parse_annotations(annotfile, sim_ppi, annotations)
         print("len_annotation ", ncbiid)
         print(len(annotations))
-    save_annotations_file("kaggle/working/annotations_all.txt", annotations)
+    save_annotations_file("data/working/annotations_all.txt", annotations)
 else:
     print("Start reading Coronavirus annotation")
     annotations = parse_annotations_first_coronavirus(annotation_coronavirus, sim_ppi)

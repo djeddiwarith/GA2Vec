@@ -29,19 +29,19 @@ The GA2Vec program identifies a global alignment of multiple input protein-prote
     igraph
 
 # Input
-1) Data files containing the paths for the PPI interaction networks and their BLAST bit score files are located in the folder 'kaggle/input/data_policy'
-2) The Anc2vec embedding file is in the folder 'kaggle/input/datavp/GOTembed/embeddings.npy'.
+1) Data files containing the paths for the PPI interaction networks and their BLAST bit score files are located in the folder 'data/input/data_policy'
+2) The Anc2vec embedding file is in the folder 'data/input/datavp/GOTembed/embeddings.npy'.
     #### Coronavirus and Virus-Host species input data
-3) The protein-protein interaction networks of coronavirus and virus-host species, along with their BLAST bit score files, are located under the directory: 'kaggle/input/coronavirus_blast_sim2'
-4) The Gene Ontology annotation of coronavirus and Virus-Host species is found in the file: "kaggle/input/sars-goa-uniprotkb". Please initialize "speciesCoronavirus = True" (see Line 1764 in the "GA2Vec.py") in order to parse the GO annotations for coronavirus and Virus-Host species.
-5) The pre-trained embedding files for each embedding model (i.e., ProtBERT, T5, and ESM-2) for the coronavirus and Virus-Host species are located in the folder: 'kaggle/input/embedding-species'
+3) The protein-protein interaction networks of coronavirus and virus-host species, along with their BLAST bit score files, are located under the directory: 'data/input/coronavirus_blast_sim2'
+4) The Gene Ontology annotation of coronavirus and Virus-Host species is found in the file: "data/input/sars-goa-uniprotkb". Please initialize "speciesCoronavirus = True" (see Line 1764 in the "GA2Vec.py") in order to parse the GO annotations for coronavirus and Virus-Host species.
+5) The pre-trained embedding files for each embedding model (i.e., ProtBERT, T5, and ESM-2) for the coronavirus and Virus-Host species are located in the folder: 'data/input/embedding-species'
     #### Eukaryotic and Prokaryotic species input data
-6) The GO association files for the eukaryotic and prokaryotic species from UniProt-GOA are located in the folder 'kaggle/input/datavp2/datavp/gaf'
-7) The protein-protein interaction networks of eukaryotic and prokaryotic species, along with their BLAST bit score files, are located in the directory: 'kaggle/input/datavp2/datavp'
-8) The pretrained embedding files for each model (i.e., ProtBERT, T5, and ESM-2) for eukaryotic and prokaryotic species are located in the folder: "kaggle/input/embedding-species/"
+6) The GO association files for the eukaryotic and prokaryotic species from UniProt-GOA are located in the folder 'data/input/datavp2/datavp/gaf'
+7) The protein-protein interaction networks of eukaryotic and prokaryotic species, along with their BLAST bit score files, are located in the directory: 'data/input/datavp2/datavp'
+8) The pretrained embedding files for each model (i.e., ProtBERT, T5, and ESM-2) for eukaryotic and prokaryotic species are located in the folder: "data/input/embedding-species/"
 
 # Usage
-    1. Download the input data from this link "https://drive.google.com/file/d/1mikyz4fqIPJ5-zPNquWh2C7KzDgGmsIH/view?usp=sharing", and place the folder 'kaggle,' which contains all the necessary files (PPI network, BLAST files, embedding files for each species, gene ontology annotations, etc.), inside the 'GA2Vec' folder.
+    1. Download the input data from this repository: "https://doi.org/10.5281/zenodo.14054769", and place the folder 'data,' which contains all the necessary files (PPI network, BLAST files, embedding files for each species, gene ontology annotations, etc.), inside the 'GA2Vec' folder.
     1. Set the input data file path (datafile) and output file path (output_file) in the Python script.
     2. Run the Python script: python GA2Vec.py
     3. The aligned nodes will be saved in the specified output file.
@@ -59,10 +59,11 @@ The GA2Vec program identifies a global alignment of multiple input protein-prote
     - Adjust the fitness function of the genetic algorithm, try invoking the function 'fitness_function_opt()' (see Line 1760 and Line 1704), which computes the total similarity of aligned nodes. Alternatively, to use the simpler fitness function, call 'fitness_function_org()' (see Line 1759 and Line 1704), which is based on a generic fitness function. This function returns the negative size of the aligned node set, as genetic algorithms typically aim to maximize the fitness value.
 # Evaluation
 We provide the Python code for generating heatmaps for each compared species, searching for conserved protein complexes, and we also provide the evaluation metrics, including the p-value and F1 score:
-1) The file "evaluation/f1/compute_f1_score.py" is used to compute the F1 score for each alignment dataset.
-2) Inside the folder "evaluation/heatmap-p-value," we provide all the Python code used to generate the heatmap for each alignment dataset.
-3) The file "evaluation/search_complex/search_complex.py" is used to generate the triplets (i.e., source, relation, target) for each pair of proteins in order to be visualized using the Cytoscape tool. The source and target are the proteins belonging to the compared species, and the relation refers to the type of interaction (e.g., "aligned_to," "interacts_with").
-4) Under the "results" folder, we provide all the alignment files for GA2Vec and its competitors.
+1) The file "evaluation/heatmap-p-value/p_value_overall_all_metrics.py" is used to compute the one-sided Wilcoxon p-values and allows visualization of the table values. Each cell in this table indicate the number of pairwise alignments where the performance of a GA2Vec variant significantly exceeds that of a baseline method. 
+2) The file "evaluation/heatmap-p-value/p_value_overall_f1_score.py" is used to compute the one-sided Wilcoxon p-values and enables visualization of the p-values between the F1 scores achieved by GA2Vec variants and those obtained by each baseline method.
+3) Inside the folder "evaluation/heatmap-p-value," we provide all the Python code used to generate the heatmap for each alignment dataset. 
+4) The file "evaluation/search_complex/search_complex.py" is used to generate the triplets (i.e., source, relation, target) for each pair of proteins in order to be visualized using the Cytoscape tool. The source and target are the proteins belonging to the compared species, and the relation refers to the type of interaction (e.g., "aligned_to," "interacts_with"). 
+5) Under the "results" folder, we provide all the alignment files for GA2Vec and its competitors.
 # License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
